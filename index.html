@@ -115,6 +115,22 @@
 		.dropdown:hover .dropdown-content {
 			display: block;
 		}
+		.youtubecontainer {
+			 position: relative;
+			overflow: hidden;
+			width: 45%;
+			padding-top: 25.5%;
+		}
+		#latestvideo {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+		}
+		
 		
 		</style>
 	</head>
@@ -153,7 +169,9 @@
 			<p>Welcome to the official website of ThisNoobPlays! I make gaming videos on Youtube and some other videos as well. Here you can request video ideas and also see playlists and other stuff.</p>
 			<article>
 				<h2 style="font-size:3vw; margin-bottom: 2vw; margin-top:0;">Latest Video</h2>
-				<iframe id="latestvideo" width="1000vw" height="564vw" frameborder="0" style="border:5px outset black;" allowfullscreen></iframe>
+				<div class="youtubecontainer">
+					<iframe id="latestvideo" width="1000vw" height="564vw" frameborder="0" style="border:5px outset black;" allowfullscreen></iframe>
+				</div>
 			</article>
 			<hr>
 			<article>
