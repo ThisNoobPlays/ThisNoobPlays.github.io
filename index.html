@@ -11,6 +11,7 @@
 		<meta http-equiv="refresh" content="1200">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script>
 			var channelID = "UC2j-x0c4DftnsglQWGt5WpQ";
@@ -20,6 +21,48 @@
 			   var id = link.substr(link.indexOf("=")+1);
 			$("#latestvideo").attr("src","https://youtube.com/embed/"+id + "?controls=0&showinfo=0&rel=0");
 			});
+		</script>
+		<script>
+			var playlistLoaded = false;
+			var currentPlaylistNumber;
+			var playlistVideo;
+			var videoPlaylistURLs = new Array;
+			var playlistTitle;
+			
+			function onPlaylistLoad() {
+				if (playlistLoaded == false) {
+					videoPlaylistURLs = ["https://www.youtube.com/embed/videoseries?list=PLwXBiULkz9BXJ6D3M4Im18G38vHtupN25", "https://www.youtube.com/embed/videoseries?list=PLwXBiULkz9BWjb8QBH3T4vUdB1zorEfPY", "https://www.youtube.com/embed/videoseries?list=PLwXBiULkz9BUGiid_7EZycQ8OjGTMpotp",
+											"https://www.youtube.com/embed/videoseries?list=PLwXBiULkz9BWbGgqHbUy2FbsqWUxp-rlo", "https://www.youtube.com/embed/videoseries?list=PLwXBiULkz9BVAPwANoP45AxQvKwx53aj1", "https://www.youtube.com/embed/videoseries?list=PLwXBiULkz9BVrwDohPfN_Xy4c_aQ1ajgV",
+											"https://www.youtube.com/embed/videoseries?list=PLwXBiULkz9BW8R726_5mvybaI9No_61B2", "https://www.youtube.com/embed/videoseries?list=PLwXBiULkz9BXW6ieiR9WICmkld7qnPGDW", "https://www.youtube.com/embed/videoseries?list=PLwXBiULkz9BV4m1Kr-GcIxoFnDWZzz11w",
+											];
+					playlistVideo = document.getElementById("playlistvideo");
+					playlistTitle = document.getElementById("playlisttitle");
+					currentPlaylistNumber = Math.floor(Math.random() * videoPlaylistURLs.length)
+					playlistVideo.src = videoPlaylistURLs[currentPlaylistNumber];
+					playlistLoaded = true;
+					playlistTitle.innerText = "Playlist " + (currentPlaylistNumber + 1) + "/" + videoPlaylistURLs.length;
+				}
+			}
+			
+			function onNextPlaylist() {
+				if (currentPlaylistNumber + 1 < videoPlaylistURLs.length) {
+					currentPlaylistNumber = currentPlaylistNumber + 1
+				} else {
+					currentPlaylistNumber = 0
+				}
+				playlistVideo.src = videoPlaylistURLs[currentPlaylistNumber]
+				playlistTitle.innerText = "Playlist " + (currentPlaylistNumber + 1) + "/" + videoPlaylistURLs.length;
+			}	
+			
+			function onBackPlaylist() {
+				if (currentPlaylistNumber - 1 > -1) {
+					currentPlaylistNumber = currentPlaylistNumber - 1
+				} else {
+					currentPlaylistNumber = 8
+				}
+				playlistVideo.src = videoPlaylistURLs[currentPlaylistNumber]
+				playlistTitle.innerText = "Playlist " + (currentPlaylistNumber + 1) + "/" + videoPlaylistURLs.length;
+			}	
 		</script>
 		<style>
 		body{
@@ -116,7 +159,7 @@
 			display: block;
 		}
 		.youtubecontainer {
-			 position: relative;
+			position: relative;
 			overflow: hidden;
 			width: 45%;
 			padding-top: 25.5%;
@@ -130,8 +173,29 @@
 			width: 100%;
 			height: 100%;
 		}
+		.button {
+			border: none;
+			color: white;
+			padding: 16px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			transition-duration: 0.4s;
+			cursor: pointer;
+			float: right;
+		}
 		
-		
+		.playlistbutton {
+			background-color: #333; 
+			color: white; 
+			border: 2px solid black;
+		}
+
+		.playlistbutton:hover {
+			background-color: white;
+			color: black;
+		}
 		</style>
 	</head>
 	<body lang="en">
@@ -142,7 +206,7 @@
 				<pre style="float:right; margin-top:-7vw; font-size:0.7vw;">
 				Official Website
 				Developed by ThisNoobPlays
-				Website version 06.21.2020
+				Website version 06.24.2020
 				</pre>
 			</div>
 		</header>
@@ -169,9 +233,15 @@
 			<p>Welcome to the official website of ThisNoobPlays! I make gaming videos on Youtube and some other videos as well. Here you can request video ideas and also see playlists and other stuff.</p>
 			<article>
 				<h2 style="font-size:3vw; margin-bottom: 2vw; margin-top:0;">Latest Video</h2>
+				<h2 style="float: right; font-size:2.8vw; margin-bottom: 2vw; margin-top:-4.6vw; margin-right: 22.13vw;">Playlists</h2>
 				<div class="youtubecontainer">
 					<iframe id="latestvideo" width="1000vw" height="564vw" frameborder="0" style="border:5px outset black;" allowfullscreen></iframe>
 				</div>
+				
+				<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: visible; max-width: 40%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 80%; }</style><div class='embed-container' style="padding-bottom: 30vw; margin-left: 50vw; margin-top: -24vw;" ><iframe id="playlistvideo"  onload="onPlaylistLoad()" src='https://www.youtube.com/embed/undefined' frameborder='0' allowfullscreen></iframe></div>
+				<h3 id="playlisttitle" style="font-size: 2vw; float: right; margin-top: -4vw; margin-right: 24vw;">Playlist ...</h3>
+				<button onclick="onBackPlaylist()" style="padding: 0; font-size: 1vw; width: 6vw; height: 3vw; position: absolute; margin-top:-4vw; margin-left: 50vw; z-index: 2;" class="button playlistbutton"><span>Back</span></button>
+				<button onclick="onNextPlaylist()" style="padding: 0; width: 6vw; height: 3vw; font-size: 1vw; position: absolute; margin-top:-4vw; margin-left: 84vw; z-index: 2;" class="button playlistbutton">Next</button>
 			</article>
 			<hr>
 			<article>
