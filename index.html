@@ -196,6 +196,32 @@
 			background-color: white;
 			color: black;
 		}
+		.arrow {
+		  border: solid white;
+		  border-width: 0 0.156vw 0.156vw 0;
+		  display: inline-block;
+		  padding: 0.156vw;
+		}
+
+		.right {
+		  transform: rotate(-45deg);
+		  -webkit-transform: rotate(-45deg);
+		}
+
+		.left {
+		  transform: rotate(135deg);
+		  -webkit-transform: rotate(135deg);
+		}
+
+		.up {
+		  transform: rotate(-135deg);
+		  -webkit-transform: rotate(-135deg);
+		}
+
+		.down {
+		  transform: rotate(45deg);
+		  -webkit-transform: rotate(45deg);
+		}
 		</style>
 		<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: visible; max-width: 40%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 80%; }</style>
 	</head>
@@ -215,7 +241,7 @@
 			<a href="index.html" style="margin-top: -3.3vw;">Home</a>
 			<a href="index.html#videorequestform" style="margin-top: -3.3vw;margin-left: 5vw;">Request a Video</a>
 			<div class="dropdown" style="margin-top: -3.2vw;margin-left: 14vw;">
-				<button class="dropbtn" style="padding-bottom: 0.7vw;">Playlists
+				<button class="dropbtn" style="padding-bottom: 0.7vw;">Playlists  <i class="arrow down"></i>
 				</button>
 				<ul class="dropdown-content" style="padding:0; margin:0;">
 					<li><a href="https://www.youtube.com/playlist?list=PLwXBiULkz9BXW6ieiR9WICmkld7qnPGDW" target="_blank">Roblox</a></li>
