@@ -197,6 +197,7 @@
 			color: black;
 		}
 		</style>
+		<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: visible; max-width: 40%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 80%; }</style>
 	</head>
 	<body lang="en">
 		<header>
@@ -235,10 +236,9 @@
 				<h2 style="font-size:3vw; margin-bottom: 2vw; margin-top:0;">Latest Video</h2>
 				<h2 style="float: right; font-size:2.8vw; margin-bottom: 2vw; margin-top:-4.6vw; margin-right: 22.13vw;">Playlists</h2>
 				<div class="youtubecontainer">
-					<iframe id="latestvideo" width="1000vw" height="564vw" frameborder="0" style="border:5px outset black;" allowfullscreen></iframe>
+					<iframe id="latestvideo" width="1000vw" height="564vw" style="border: 0;" style="border:5px outset black;" allowfullscreen></iframe>
 				</div>
-				
-				<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: visible; max-width: 40%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 80%; }</style><div class='embed-container' style="padding-bottom: 30vw; margin-left: 50vw; margin-top: -24vw;" ><iframe id="playlistvideo"  onload="onPlaylistLoad()" src='https://www.youtube.com/embed/undefined' frameborder='0' allowfullscreen></iframe></div>
+				<div class='embed-container' style="padding-bottom: 30vw; margin-left: 50vw; margin-top: -24vw;" ><iframe style="border: 0;" id="playlistvideo"  onload="onPlaylistLoad()" src='https://www.youtube.com/embed/undefined' allowfullscreen></iframe></div>
 				<h3 id="playlisttitle" style="font-size: 2vw; float: right; margin-top: -4vw; margin-right: 24vw;">Playlist ...</h3>
 				<button onclick="onBackPlaylist()" style="padding: 0; font-size: 1vw; width: 6vw; height: 3vw; position: absolute; margin-top:-4vw; margin-left: 50vw; z-index: 2;" class="button playlistbutton"><span>Back</span></button>
 				<button onclick="onNextPlaylist()" style="padding: 0; width: 6vw; height: 3vw; font-size: 1vw; position: absolute; margin-top:-4vw; margin-left: 84vw; z-index: 2;" class="button playlistbutton">Next</button>
@@ -247,7 +247,7 @@
 			<article>
 				<h2 style="font-size:3vw; margin-bottom: 2vw; margin-top:0;">Video Requests</h2>
 				<p>To request a video idea just fill in the form below and it will be sent to the Video Requests spreadsheet. You can see other requests on the right. The chart updates around every 5 minutes.</p>
-				<iframe id="videorequestform" src="https://docs.google.com/forms/d/e/1FAIpQLScMUcFPHer1wRyyStjWDBfYqSY5bwzANGJl0xaM1IEH3Mr-yA/viewform?embedded=true" width="600vw" height="400vw" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+				<iframe id="videorequestform" src="https://docs.google.com/forms/d/e/1FAIpQLScMUcFPHer1wRyyStjWDBfYqSY5bwzANGJl0xaM1IEH3Mr-yA/viewform?embedded=true" width="600vw" height="400vw" frameborder="0" style="margin: 0;">Loading…</iframe>
 				<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRWD_HIPhyc0QMORMlQescVxbrm7ZbWG08ri0j9UUuODvXVEc2lJF29R9ROyJIfHHB5R_aj0Zktjdau/pubhtml?gid=709788153&amp;single=true&amp;widget=true&amp;headers=false" width="350vw" height="400vw"></iframe>
 			</article>
 		</section>
