@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RobloxStudio_TeamChangingGUI</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="how-to-make-a-team-changing-gui-in-roblox-studio">How To Make A Team-Changing GUI In Roblox Studio</h1>
+<p>Youtube Video Iframe here</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Roblox Studio</li>
+<li>General Scripting Knowledge:
+<ul>
+<li><a href="https://developer.roblox.com/en-us/articles/Variables">Variables</a></li>
+<li><a href="https://developer.roblox.com/en-us/articles/Function">Functions</a></li>
+<li><a href="https://developer.roblox.com/en-us/articles/events">Events</a></li>
+<li>:Connect()</li>
+<li>Accessing Properties</li>
+</ul>
+</li>
+<li>How to use the Roblox Studio Explorer</li>
+</ul>
+<h2 id="instructions">Instructions</h2>
+<ol>
+<li>Enable the “Teams” service in Model &gt; Services &gt; Teams, click insert.</li>
+<li>Add a new ScreenGUI</li>
+<li>Put two  TextButtons in the ScreenGUI you just created. Set the text and name accordingly. Also enable “TextScaled” so that the text scales automatically.</li>
+<li>In ReplicatedStorage, add a RemoteEvent and call it “ChangeTeamEvent”.</li>
+<li>Make a new localscript inside the ScreenGUI and paste in the following code. Change the code if necessary</li>
+</ol>
+<blockquote>
+<p>local redButton = script.Parent.RedButton – Put the name of one button here<br>
+local blueButton = script.Parent.BlueButton – Put the name of the other button here<br>
+local event = game:GetService(“ReplicatedStorage”).ChangeTeamEvent – Set to an event in ReplicatedStorage<br>
+local function redTeam()<br>
+event:FireServer(“red”) – Put the team name as the argument<br>
+end<br>
+local function blueTeam()<br>
+event:FireServer(“blue”) – Put the team name as the argument<br>
+end<br>
+– Add more functions if you have more teams<br>
+– Add more buttons in GUI if you have more teams<br>
+– Add more function connections if you have more teams<br>
+redButton.MouseButton1Click:Connect(redTeam)<br>
+blueButton.MouseButton1Click:Connect(blueTeam)<br>
+– Add more connections if needed</p>
+</blockquote>
+<ol start="6">
+<li>Make a new script inside ServerScriptService and paste in the following code. Adjust code as needed.</li>
+</ol>
+<blockquote>
+<p>local event = game.ReplicatedStorage.ChangeTeamEvent – Set to the aformentioned event in ReplicatedStorage<br>
+local redTeam = game.Teams.Red – Make variables for each of the teams you have<br>
+local blueTeam = game.Teams.Blue<br>
+local function onTeamChange(player, color)<br>
+if color == “red” then – Make extra elseif statements if you have more teams<br>
+player.Team = redTeam – Set the team to the team you want<br>
+else<br>
+player.Team = blueTeam<br>
+end<br>
+end<br>
+event.OnServerEvent:Connect(onTeamChange)</p>
+</blockquote>
+<ol start="7">
+<li>That’s it. Hopefully you have been able to make it work. If you have any questions you can go to the Youtube video and ask them in the comments.</li>
+</ol>
+<p><a href="http://ThisNoobPlays.Github.io">ThisNoobPlays.Github.io</a></p>
+</div>
+</body>
+
+</html>
