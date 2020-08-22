@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RobloxStudio_PluginQuickstart</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="roblox-plugin-quickstart">Roblox Plugin Quickstart</h1>
+<p>By ThisNoobPlays 2020.08.21<br>
+Learn how to create a simple Roblox plugin that you can expand on and add functionality to!</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Roblox scripting:
+<ul>
+<li>Variables</li>
+<li>Strings</li>
+<li>Arguments</li>
+<li>Functions</li>
+<li>Events</li>
+<li>:Connect()</li>
+</ul>
+</li>
+</ul>
+<h2 id="instructions">Instructions</h2>
+<ol>
+<li>Make a new script in “ServerScriptStorage”</li>
+<li>Make a toolbar for your plugin by typing in on one line <code>local toolbar = plugin:CreateToolbar("Plugin Name")</code><br>
+Set the string in the parentheses to your plugin name.</li>
+<li>Make a button for your plugin by typing in on one line <code>local button = toolbar:CreateButton("Button Name", "Button Description", "Button Icon")</code><br>
+First argument : Button name that appears below the button<br>
+Second argument: Description of button that appears on mouse hover<br>
+Third argument: RbxAssetId link pointing to an image for your button icon</li>
+<li>Right click on your script object in the explorer and save as local plugin:</li>
+</ol>
+<blockquote>
+<p>PluginScript &gt; Save As Local Plugin</p>
+</blockquote>
+<ol start="5">
+<li>Check that your plugin button is visible in the plugins toolbar</li>
+<li>Make a new function to house your plugin code. For example <code>local function onButton() end</code></li>
+<li>Inside the function add your code / functionality</li>
+<li>Bind the button click to your function by typing this line <em>after</em> the function declaration : <code>button.Click:Connect(onButton)</code><br>
+Replace <code>onButton</code> with your function name</li>
+<li>Save your script as a local plugin again</li>
+<li>Test your plugin by clicking your plugin button</li>
+<li>Hopefully your plugin works!</li>
+</ol>
+</div>
+</body>
+
+</html>
