@@ -1,0 +1,42 @@
+1. Make GUI named "Spinner" in StarterGUi
+2. Add localscript, spinButton, spinText to the GUI, spinDoneEvent
+3. Put code:
+
+local text = script.Parent.SpinnerText
+local button = script.Parent.SpinnerButton
+local spinnerEvent = game:GetService("ReplicatedStorage"):WaitForChild("SpinnerEvent")
+local waitTime = 0.1
+
+local objects = {"Orange", "Red", "Yellow", "Blue", "Purple"}
+local spinCount = 50
+
+
+local start = math.random(1, #objects)
+
+local function nextObject()
+	if start == #objects then
+		start = 1
+	else
+		start += 1
+	end
+	
+	return objects[start]
+	
+end
+
+button.MouseButton1Click:Connect(function()
+	for i=spinCount, 0, -1 do
+		text.Text = nextObject()
+		
+		if i <= 10 then
+			waitTime += 0.1
+		end
+		wait(waitTime)
+	end
+	
+	spinnerEvent:Fire(text.Text)
+end)
+
+NOTES:
+the objects variable can be any table that contains a list of strings such as in a modulescript or the global array (_G)
+
